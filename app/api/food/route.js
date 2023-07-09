@@ -20,7 +20,7 @@ export const GET = async (request) => {
 // DELETE (delete)
 export const DELETE = async (request) => {
     try {
-        console.log(request.url.split("=")[1]);
+        // console.log(request.url.split("=")[1]);
         await connectToDB();
         const existingFood = await Food.findById(request.url.split("=")[1]);
 

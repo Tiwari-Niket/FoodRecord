@@ -38,6 +38,9 @@ const page = () => {
     }
     return (
         <>
+        {/* <head>
+            <link rel="manifest" href="/manifest.json"></link>
+        </head> */}
             <div className="w-full flex justify-end mb-5">
                 <button className="reload p-2" onClick={reload}>
                     <Image

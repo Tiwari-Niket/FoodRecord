@@ -9,6 +9,9 @@ export const metadata = {
 const RootLayout = ({ children }) => {
     return (
         <html>
+            <head>
+                <link rel="manifest" href="/manifest.json" />
+            </head>
             <body suppressHydrationWarning={true}>
                 <div className='main'>
                     <div className='gradient' />

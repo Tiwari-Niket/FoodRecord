@@ -47,7 +47,7 @@ const Food = () => {
   }, []);
 
   const handleDelete = async (food) => {
-    const hasConfirmed = confirm("Are you sure you want to delete this prompt?");
+    const hasConfirmed = confirm("Are you sure you want to delete this food?");
     if (hasConfirmed) {
       try {
         await fetch(`/api/food?id=${food._id}`, {

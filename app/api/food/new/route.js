@@ -32,7 +32,7 @@ export const PATCH = async (request) => {
         const existingFood = await Food.find({});
 
         if (!existingFood) return new Response("Food not found", { status: 404 });
-        console.log(existingFood);
+
         for (let index = 0; index < existingFood?.length; index++) {
                 existingFood[index].count = 0;
                 await existingFood[index].save();

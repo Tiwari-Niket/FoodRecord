@@ -48,7 +48,7 @@ const Department = () => {
   }, []);
 
   const handleDelete = async (employee) => {
-    const hasConfirmed = confirm("Are you sure you want to delete this prompt?");
+    const hasConfirmed = confirm("Are you sure you want to delete this employee?");
     if (hasConfirmed) {
       try {
         const response = await fetch(`/api/employee?id=${employee._id}`, {

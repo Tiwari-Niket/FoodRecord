@@ -30,7 +30,7 @@ export const PATCH = async (request) => {
         const existingEmployee = await Empolyee.find({});
 
         if (!existingEmployee) return new Response("Employee not found", { status: 404 });
-        console.log(existingEmployee);
+        
         for (let index = 0; index < existingEmployee?.length; index++) {
                 existingEmployee[index].order = [];
                 await existingEmployee[index].save();
