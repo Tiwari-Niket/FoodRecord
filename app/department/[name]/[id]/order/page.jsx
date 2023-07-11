@@ -5,13 +5,13 @@ import { useParams, useRouter } from "next/navigation";
 
 const Department = () => {
     const router = useRouter();
-    const params = useParams()
+    const params = useParams();
 
     const handleClick = async () => {
-        router.push(`/department/${params.id}/order/view_order`);
+        router.push(`/department/${params.name}/${params.id}/order/view_order`);
     };
     const handleClick2 = async () => {
-        router.push(`/department/${params.id}/order/new`);
+        router.push(`/department/${params.name}/${params.id}/order/new`);
     };
 
     const reload = async (e) => {
@@ -27,7 +27,7 @@ const Department = () => {
             });
 
             if (response.ok) {
-                router.push(`/department/${params.id}/order`);
+                router.push(`/department/${params.name}/${params.id}/order`);
             }
         } catch (error) {
             console.log(error);

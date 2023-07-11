@@ -1,15 +1,15 @@
 import Empolyee from "@models/employee";
 import { connectToDB } from "@utils/database";
 
-
 export const POST = async (req) => {
-    const { employee_name } = await req.json();
+    const { employee_name, department_name } = await req.json();
     const name = employee_name.replace(" ", "").toLowerCase()
     try {
         await connectToDB();
-        const findEmployee = await Empolyee.findOne({ employee_name: name });
+        const findEmployee = await Empolyee.findOne({ department_name: department_name });
+        
         if (!findEmployee) {
-            const newEmployee = new Empolyee({ employee_name: name });
+            const newEmployee = new Empolyee({ employee_name: name, department_name: department_name });
             await newEmployee.save();
 
             return new Response(JSON.stringify(newEmployee), { status: 201 });
@@ -27,6 +27,8 @@ export const POST = async (req) => {
 // PATCH (update)
 export const PATCH = async (request) => {
     try {
+        await connectToDB();
+        
         const existingEmployee = await Empolyee.find({});
 
         if (!existingEmployee) return new Response("Employee not found", { status: 404 });

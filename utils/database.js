@@ -9,7 +9,7 @@ export const connectToDB = async ()=>{
     }
     try {
         await mongoose.connect(process.env.MONGODB_URI,{
-            dbName: "devolvi",
+            dbName: "dev",
             useNewUrlParser: true,
             useUnifiedTopology: true
         });

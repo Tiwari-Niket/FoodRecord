@@ -52,7 +52,7 @@ const Order = ({ params }) => {
       });
 
       if (response.ok && response2.ok) {
-        router.push(`/department/${params.id}/order`);
+        router.push(`/department/${params.name}/${params.id}/order`);
       }
     } catch (error) {
       console.log(error);
@@ -73,7 +73,7 @@ const Order = ({ params }) => {
       });
 
       if (response.ok) {
-        router.push(`/department/${params.id}/order`);
+        router.push(`/department/${params.name}/${params.id}/order`);
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         for (const checkbox of checkboxes) {
           if (checkbox.checked) {

@@ -1,22 +1,6 @@
 import Empolyee from "@models/employee";
 import { connectToDB } from "@utils/database";
 
-// GET (read)
-export const GET = async (request) => {
-    try {
-        await connectToDB();
-
-        const employee = await Empolyee.find({});
-
-        return new Response(JSON.stringify(employee), { status: 200 });
-
-    } catch (error) {
-
-        return new Response("Failed to fetch all employee", { status: 500 });
-        
-    }
-};
-
 // DELETE (delete)
 export const DELETE = async(request)=>{
     try {
