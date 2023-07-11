@@ -2,7 +2,7 @@ import '@styles/globals.css';
 import Nav from '@components/Nav';
 
 export const metadata = {
-    title: "Devolvi",
+    title: "Food Record",
     description: "Keeping records for our employee."
 };
 

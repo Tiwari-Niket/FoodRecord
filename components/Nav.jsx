@@ -8,11 +8,11 @@ const Nav = () => {
                 <Image
                     src='/assets/logo.png'
                     alt='logo'
-                    width={30}
-                    height={30}
+                    width={35}
+                    height={35}
                     className='object-contain'
                 />
-                <p className='logo_text'>Devolvi</p>
+                <p className='logo_text'>Food Record</p>
             </Link>
         </nav>
     )

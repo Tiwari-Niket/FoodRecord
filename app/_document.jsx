@@ -10,7 +10,7 @@ export default function Document() {
                     integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
                     crossOrigin=""
                 />
-                <meta name="application-name" content="Devolvi" />
+                <meta name="application-name" content="Food Record" />
                 <link rel="manifest" href="/manifest.json" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
