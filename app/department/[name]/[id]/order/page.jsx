@@ -90,7 +90,7 @@ const Department = () => {
                     },
                 });
 
-                const response2 = await fetch('/api/food/update', {
+                const response2 = await fetch('/api/food/update/particular', {
                     method: 'PATCH',
                     body: JSON.stringify({
                         department_name: params.name
