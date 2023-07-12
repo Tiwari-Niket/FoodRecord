@@ -5,7 +5,19 @@ const FoodSchema = new Schema({
         type: String,
         required: true
     },
-    count:{
+    dept1_count:{
+        type:Number,
+        required:true,
+    },
+    dept2_count:{
+        type:Number,
+        required:true,
+    },
+    dept3_count:{
+        type:Number,
+        required:true,
+    },
+    dept4_count:{
         type:Number,
         required:true,
     }

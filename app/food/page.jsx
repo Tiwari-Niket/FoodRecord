@@ -18,12 +18,12 @@ const Food = () => {
       const response = await fetch('/api/food/new', {
         method: 'POST',
         body: JSON.stringify({
-          food_name: name.food_name
+          food_name: name.food_name,
         })
       });
 
       if (response.ok) {
-        router.push('/food');
+        router.push('/');
       } else if (!response.ok) {
         alert("Food already exist");
       }
@@ -60,9 +60,9 @@ const Food = () => {
   };
 
   const handleGoBack = () => {
-    router.back();
+    router.push('/');
   };
-  
+
   return (
     <>
       <div className='flex-between w-full mb-5'>
@@ -151,7 +151,12 @@ const Food = () => {
                 className='object-contain'
               />
             </p>
-            <p className="total text-center m-2 p-2">Total : {food.count}</p>
+            <div className="total text-center m-2 p-2">Total :
+              <p className="total text-center m-2 p-2">dept1_Total : {food.dept1_count}</p>
+              <p className="total text-center m-2 p-2">dept2_Total : {food.dept2_count}</p>
+              <p className="total text-center m-2 p-2">dept3_Total : {food.dept3_count}</p>
+              <p className="total text-center m-2 p-2">dept4_Total : {food.dept4_count}</p>
+            </div>
           </div>
         ))
       )}

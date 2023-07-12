@@ -16,6 +16,7 @@ const Department = () => {
   const Department = async (e) => {
     e.preventDefault();
     setSubmitting(true);
+
     try {
       const response = await fetch('/api/employee/new', {
         method: 'POST',
@@ -26,7 +27,7 @@ const Department = () => {
       });
 
       if (response.ok) {
-        router.push(`/department/${params.name}`);
+        router.push(`/department`);
       } else if (!response.ok) {
         alert("Employee already exist");
       }
@@ -70,25 +71,37 @@ const Department = () => {
   };
 
   const handleGoBack = () => {
-    router.back();
+    router.push('/department');
   };
 
   const reload = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch(`/api/employee/new/${params.name}`, {
-        method: 'PATCH',
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+    const hasConfirmed = confirm("Are you sure you want to reload?");
+    if (hasConfirmed) {
+      try {
+        const response = await fetch(`/api/employee/new/${params.name}`, {
+          method: 'PATCH',
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const response2 = await fetch('/api/food/update', {
+          method: 'PATCH',
+          body: JSON.stringify({
+            department_name: params.name
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
 
-      if (response.ok) {
-        router.push(`/department`);
+        if (response.ok && response2.ok) {
+          router.push(`/department`);
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
   }
 

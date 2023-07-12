@@ -4,9 +4,10 @@ import { connectToDB } from "@utils/database";
 export const POST = async (req) => {
     const { employee_name, department_name } = await req.json();
     const name = employee_name.replace(" ", "").toLowerCase()
+
     try {
         await connectToDB();
-        const findEmployee = await Empolyee.findOne({ department_name: department_name });
+        const findEmployee = await Empolyee.findOne({ employee_name: employee_name, department_name: department_name });
         
         if (!findEmployee) {
             const newEmployee = new Empolyee({ employee_name: name, department_name: department_name });
@@ -14,13 +15,9 @@ export const POST = async (req) => {
 
             return new Response(JSON.stringify(newEmployee), { status: 201 });
         }
-
         return new Response("Employee Already Exist", { status: 404 });
-
     } catch (error) {
-
         return new Response("Failed to add a new employee", { status: 500 });
-
     }
 };
 

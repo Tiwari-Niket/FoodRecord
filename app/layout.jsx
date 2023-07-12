@@ -11,6 +11,9 @@ const RootLayout = ({ children }) => {
         <html>
             <head>
                 <link rel="manifest" href="/manifest.json" />
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+                <meta name="apple-mobile-web-app-title" content="Food Record" />
             </head>
             <body suppressHydrationWarning={true}>
                 <div className='main'>

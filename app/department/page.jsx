@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -17,12 +18,23 @@ const page = () => {
         fetchDepartments();
     }, []);
 
+    const handleGoBack = () => {
+        router.push('/');
+    };
 
     return (
         <>
-            {/* <div className="prompt_card mb-3 cursor-pointer" onClick={handleClick}>
-                <p className="my-3 font-satoshi text-2xl text-extrabold text-gray-700">Department</p>
-            </div> */}
+            <div className='flex-between w-full mb-5'>
+                <button onClick={handleGoBack} className='flex gap-2 text-gray-500 flex-center' >
+                    <Image
+                        src='/assets/back.png'
+                        alt='back-logo'
+                        width={15}
+                        height={15}
+                        className='object-contain'
+                    />Go Back
+                </button>
+            </div>
             {department && department?.map((department, index) => (
                 <div className="prompt_card mb-3 cursor-pointer" key={index} onClick={() => router.push(`/department/${department.department_name}`)}>
                     <p className="my-3 font-satoshi text-2xl text-extrabold text-gray-700">{department.department_name}</p>

@@ -33,19 +33,32 @@ export const DELETE = async (request) => {
 
 // PATCH (update)
 export const PATCH = async (request) => {
-    const { total } = await request.json();
+    const { total, department_name } = await request.json();
+    // console.log(total.length, total);
     try {
         await connectToDB();
-        for (let index = 0; index < total?.length; index++) {
-            const existingFood = await Food.find({ food_name: total[index] });
-            
-            if (!existingFood) return new Response("Food not found", { status: 404 });
-            
-            existingFood[0].count = existingFood[0].count + 1;
-            await existingFood[0].save();
 
-            // return new Response(JSON.stringify(existingFood), { status: 200 });
+            const existingFood = await Food.find({ food_name: total });
+            // console.log(existingFood);
+
+        if (!existingFood) return new Response("Food not found", { status: 404 });
+
+        for (let index = 0; index < existingFood?.length; index++) {
+            if (department_name === "dept1") {
+                existingFood[index].dept1_count = existingFood[index].dept1_count + 1;
+                 existingFood[index].save();
+            } else if (department_name === "dept2") {
+                existingFood[index].dept2_count = existingFood[index].dept2_count + 1;
+                 existingFood[index].save();
+            } else if (department_name === "dept3") {
+                existingFood[index].dept3_count = existingFood[index].dept3_count + 1;
+                 existingFood[index].save();
+            }else {
+                existingFood[index].dept4_count = existingFood[index].dept4_count + 1;
+                 existingFood[index].save();
+            }
         }
+
         return new Response("Updated", { status: 200 });
     } catch (error) {
         return new Response("Failed to update a count", { status: 500 });

@@ -13,34 +13,32 @@ const page = () => {
 
     const reload = async (e) => {
         e.preventDefault();
+        const hasConfirmed = confirm("Are you sure you want to reload?");
+        if (hasConfirmed) {
+            try {
+                const response = await fetch(`/api/food/new/`, {
+                    method: 'PATCH',
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+                const response2 = await fetch(`/api/employee/new/`, {
+                    method: 'PATCH',
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
 
-        // checkedItems.push(getCheckedCheckboxValues());
-        try {
-            const response = await fetch(`/api/food/new/`, {
-                method: 'PATCH',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            const response2 = await fetch(`/api/employee/new/`, {
-                method: 'PATCH',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-
-            if (response.ok && response2.ok) {
-                router.push(`/`);
+                if (response.ok && response2.ok) {
+                    router.push(`/`);
+                }
+            } catch (error) {
+                console.log(error);
             }
-        } catch (error) {
-            console.log(error);
         }
     }
     return (
         <>
-        {/* <head>
-            <link rel="manifest" href="/manifest.json"></link>
-        </head> */}
             <div className="w-full flex justify-end mb-5">
                 <button className="reload p-2" onClick={reload}>
                     <Image
