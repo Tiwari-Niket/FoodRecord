@@ -23,7 +23,7 @@ const Food = () => {
       });
 
       if (response.ok) {
-        router.push('/');
+        window.location.reload();
       } else if (!response.ok) {
         alert("Food already exist");
       }
