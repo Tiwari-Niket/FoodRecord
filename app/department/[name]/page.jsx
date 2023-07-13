@@ -27,7 +27,7 @@ const Department = () => {
       });
 
       if (response.ok) {
-        router.push(`/department`);
+        window.location.reload();
       } else if (!response.ok) {
         alert("Employee already exist");
       }
@@ -58,7 +58,7 @@ const Department = () => {
           method: 'DELETE'
         });
         if (response.ok) {
-          window.location.reload();
+          router.push(`/department/${params.name}`);
         }
       } catch (error) {
         console.log(error);
