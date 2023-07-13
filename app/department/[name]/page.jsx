@@ -58,7 +58,7 @@ const Department = () => {
           method: 'DELETE'
         });
         if (response.ok) {
-          router.push('/department');
+          window.location.reload();
         }
       } catch (error) {
         console.log(error);
