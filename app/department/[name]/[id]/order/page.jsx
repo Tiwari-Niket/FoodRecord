@@ -56,7 +56,7 @@ const Department = () => {
             });
 
             if (response.ok && response2.ok) {
-                router.push(`/department/${params.name}`);
+                window.location.reload();
             }
         } catch (error) {
             console.log(error);
@@ -101,7 +101,7 @@ const Department = () => {
                 });
 
                 if (response.ok && response2.ok) {
-                    router.push(`/department/${params.name}`);
+                    window.location.reload();
                 }
             } catch (error) {
                 console.log(error);
