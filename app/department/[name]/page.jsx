@@ -97,7 +97,7 @@ const Department = () => {
         });
 
         if (response.ok && response2.ok) {
-          router.push(`/department`);
+          window.location.reload();
         }
       } catch (error) {
         console.log(error);
