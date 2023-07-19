@@ -14,6 +14,7 @@ export default function Document() {
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
                 <meta name="apple-mobile-web-app-title" content="Food Record" />
+                <link rel="apple-touch-icon" href="/assets/logo.png" />
                 <link rel="manifest" href="/manifest.json" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
