@@ -14,6 +14,7 @@ const RootLayout = ({ children }) => {
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
                 <meta name="apple-mobile-web-app-title" content="Food Record" />
+                <link rel="apple-touch-icon" href="/assets/logo.png" />
             </head>
             <body suppressHydrationWarning={true}>
                 <div className='main'>
